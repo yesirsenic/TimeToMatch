@@ -31,4 +31,14 @@ public class TimeSlider : MonoBehaviour
             Time.deltaTime * smoothSpeed
         );
     }
+
+    public void AddTime(float amount)
+    {
+        currentTime = Mathf.Clamp(currentTime + amount, 0f, maxTime);
+    }
+
+    public void MinusTime(float amount)
+    {
+        currentTime = Mathf.Clamp(currentTime - amount, 0f, maxTime);
+    }
 }
