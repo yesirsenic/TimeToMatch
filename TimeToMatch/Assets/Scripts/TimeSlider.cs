@@ -8,6 +8,9 @@ public class TimeSlider : MonoBehaviour
     [SerializeField] private float maxTime = 5f;
     [SerializeField] private float smoothSpeed = 8f;
 
+    [SerializeField] private float addTime = 0.5f;
+    [SerializeField] private float minusTime = 0.5f;
+
     private float currentTime;
 
     void Start()
@@ -32,13 +35,13 @@ public class TimeSlider : MonoBehaviour
         );
     }
 
-    public void AddTime(float amount)
+    public void AddTime()
     {
-        currentTime = Mathf.Clamp(currentTime + amount, 0f, maxTime);
+        currentTime = Mathf.Clamp(currentTime + addTime, 0f, maxTime);
     }
 
-    public void MinusTime(float amount)
+    public void MinusTime()
     {
-        currentTime = Mathf.Clamp(currentTime - amount, 0f, maxTime);
+        currentTime = Mathf.Clamp(currentTime - minusTime, 0f, maxTime);
     }
 }
