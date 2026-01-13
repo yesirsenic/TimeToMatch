@@ -21,11 +21,20 @@ public class TimeSlider : MonoBehaviour
 
     void Update()
     {
+        if (!GameManager.Instance.isRunning)
+            return;
+
         // 실제 시간 감소
         currentTime -= Time.deltaTime;
         currentTime = Mathf.Max(currentTime, 0f);
 
         float targetValue = currentTime / maxTime;
+
+        if (targetValue <= 0.001f)
+        {
+            slider.value = 0f;
+            GameManager.Instance.PreGameOver();
+        }
 
         // UI는 부드럽게 따라감
         slider.value = Mathf.Lerp(
@@ -43,5 +52,11 @@ public class TimeSlider : MonoBehaviour
     public void MinusTime()
     {
         currentTime = Mathf.Clamp(currentTime - minusTime, 0f, maxTime);
+    }
+
+    public void ResetSlider()
+    {
+        currentTime = maxTime;
+        slider.value = 1f;
     }
 }

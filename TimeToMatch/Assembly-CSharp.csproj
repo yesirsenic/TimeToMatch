@@ -63,10 +63,12 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\CardMatchManager.cs" />
     <Compile Include="Assets\Scripts\CardRefillManager.cs" />
+    <Compile Include="Assets\Scripts\Timer.cs" />
     <Compile Include="Assets\Scripts\CardGridManager.cs" />
     <Compile Include="Assets\Scripts\Card.cs" />
     <Compile Include="Assets\Scripts\CardType.cs" />
     <Compile Include="Assets\Scripts\TimeSlider.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -7,11 +7,6 @@ public class CardGridManager : MonoBehaviour
     public Card[] cards;              // GridLayout 자식 카드 20개
     public Sprite[] cardSprites;       // 5개 (enum 순서와 동일)
 
-    private void Start()
-    {
-        SetupCards();
-    }
-
     void SetupCards()
     {
         List<CardType> cardPool = new List<CardType>();
