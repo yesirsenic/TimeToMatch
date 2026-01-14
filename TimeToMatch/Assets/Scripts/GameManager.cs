@@ -1,4 +1,6 @@
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -7,13 +9,21 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject CardManager;
     [SerializeField] private GameObject StartButton;
+    [SerializeField] GameObject gameOverTimer;
+    [SerializeField] private GameObject NOADButton;
 
     [SerializeField] CardMatchManager cardMatchManager;
     [SerializeField] CardGridManager cardGridManager;
     [SerializeField] CardRefillManager cardRefillManager;
     [SerializeField] TimeSlider timeSlider;
 
-    [SerializeField] GameObject gameOverTimer;
+
+    [SerializeField] Text score_Text;
+    [SerializeField] Text bestScore_Text;
+
+    int score;
+    int bestscore;
+    int combo;
 
 
     private void Awake()
@@ -27,6 +37,43 @@ public class GameManager : MonoBehaviour
 
         Instance = this;
         isRunning = false;
+
+        bestscore = PlayerPrefs.GetInt("BestScore");
+        bestScore_Text.text = bestscore.ToString();
+        score = 0;
+        score_Text.text = score.ToString();
+    }
+
+    private int comboScore()
+    {
+        int res = 10;
+
+        if(combo > 10)
+        {
+            res = 100;
+        }
+
+        else if(combo > 6)
+        {
+            res = 50;
+        }
+
+        else if(combo > 4)
+        {
+            res = 20;
+        }
+
+        return res;
+    }
+
+    private void SetBestScore()
+    {
+        if(bestscore < score)
+        {
+            bestscore = score;
+            bestScore_Text.text = bestscore.ToString();
+            PlayerPrefs.SetInt("BestScore", bestscore);
+        }
     }
 
     public void GameOverTimerOn()
@@ -62,6 +109,25 @@ public class GameManager : MonoBehaviour
         gameOverTimer.SetActive(false);
         CardManager.SetActive(false);
         StartButton.SetActive(true);
+        SetBestScore();
+        score = 0;
+        score_Text.text = "0";
+        combo = 0;
+
+        AdsManager.Instance.OnPlayerDied();
+    }
+
+    public void ScoreUp()
+    {
+        combo++;
+        score += comboScore();
+        score_Text.text = score.ToString();
+        
+    }
+
+    public void Combo_Broken()
+    {
+        combo = 0;
     }
 
 
