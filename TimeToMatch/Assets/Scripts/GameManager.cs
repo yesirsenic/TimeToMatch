@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] CardGridManager cardGridManager;
     [SerializeField] CardRefillManager cardRefillManager;
     [SerializeField] TimeSlider timeSlider;
+    [SerializeField] GameObject Tutorials;
 
 
     [SerializeField] Text score_Text;
@@ -97,6 +98,19 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void GameStart()
+    {
+        if(PlayerPrefs.GetInt("Tutorial") == 0)
+        {
+            Tutorials.SetActive(true);
+        }
+
+        else
+        {
+            __Init__();
+        }
+    }
+
     public void PreGameOver()
     {
         isRunning = false;
@@ -128,6 +142,14 @@ public class GameManager : MonoBehaviour
     public void Combo_Broken()
     {
         combo = 0;
+    }
+
+    public void TutorialOff()
+    {
+        PlayerPrefs.SetInt("Tutorial", 1);
+        Tutorials.SetActive(false);
+        __Init__();
+
     }
 
 

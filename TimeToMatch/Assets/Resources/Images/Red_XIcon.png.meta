@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6f1c0a33074887845bba81d7bdf2c7d6
+guid: c2d464055f8fb894b99ce30dba8691a5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3021969261574763769
-    second: NOAD_Popup_BackGround_0
+      213: 2047870367358932779
+    second: Red_XIcon_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: NOAD_Popup_BackGround_0
+      name: Red_XIcon_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 645
-        height: 803
+        x: 1
+        y: 1
+        width: 333
+        height: 332
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9f43056480130f920800000000000000
-      internalID: 3021969261574763769
+      spriteID: b275a70cf3f7b6c10800000000000000
+      internalID: 2047870367358932779
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      NOAD_Popup_BackGround_0: 3021969261574763769
+      Red_XIcon_0: 2047870367358932779
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
