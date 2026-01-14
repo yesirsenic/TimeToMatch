@@ -8,10 +8,21 @@ public class TimeSlider : MonoBehaviour
     [SerializeField] private float maxTime = 5f;
     [SerializeField] private float smoothSpeed = 8f;
 
+
     [SerializeField] private float addTime = 0.5f;
     [SerializeField] private float minusTime = 0.5f;
 
     private float currentTime;
+
+    private float baseSpeed = 0.5f;
+    private float accel = 0.035f;
+    private float maxSpeed = 2.2f;
+
+    float elapsedTime = 0f;
+
+    private float minAdd = 0.25f;
+    private float maxAdd = 1f;
+    private float growDuration = 45f;
 
     void Start()
     {
@@ -25,7 +36,12 @@ public class TimeSlider : MonoBehaviour
             return;
 
         // 실제 시간 감소
-        currentTime -= Time.deltaTime;
+        elapsedTime += Time.deltaTime;
+        float speed = Mathf.Min(
+            baseSpeed + elapsedTime * accel,
+            maxSpeed
+        );
+        currentTime -= Time.deltaTime * speed;
         currentTime = Mathf.Max(currentTime, 0f);
 
         float targetValue = currentTime / maxTime;
@@ -46,7 +62,9 @@ public class TimeSlider : MonoBehaviour
 
     public void AddTime()
     {
-        currentTime = Mathf.Clamp(currentTime + addTime, 0f, maxTime);
+        float t = Mathf.Clamp01(elapsedTime / growDuration);
+        float gain = Mathf.Lerp(minAdd, maxAdd, Mathf.Sqrt(t));
+        currentTime = Mathf.Clamp(currentTime + gain, 0f, maxTime);
     }
 
     public void MinusTime()
@@ -58,5 +76,6 @@ public class TimeSlider : MonoBehaviour
     {
         currentTime = maxTime;
         slider.value = 1f;
+        elapsedTime = 0f;
     }
 }
