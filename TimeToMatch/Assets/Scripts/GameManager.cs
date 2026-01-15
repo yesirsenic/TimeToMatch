@@ -1,6 +1,7 @@
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Advertisements;
 
 public class GameManager : MonoBehaviour
 {
@@ -26,6 +27,12 @@ public class GameManager : MonoBehaviour
     int bestscore;
     int combo;
 
+#if UNITY_ANDROID
+    private string gameId = "1234567";
+#elif UNITY_IOS
+    private string gameId = "7654321";
+#endif
+
 
     private void Awake()
     {
@@ -43,6 +50,11 @@ public class GameManager : MonoBehaviour
         bestScore_Text.text = bestscore.ToString();
         score = 0;
         score_Text.text = score.ToString();
+    }
+
+    void Start()
+    {
+        Advertisement.Initialize(gameId, true);
     }
 
     private int comboScore()
