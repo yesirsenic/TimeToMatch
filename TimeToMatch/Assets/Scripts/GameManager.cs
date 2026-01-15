@@ -96,6 +96,8 @@ public class GameManager : MonoBehaviour
         Animator anim = gameOverTimer.GetComponent<Animator>();
 
         anim.Play("TimerOn", 0, 0f);
+
+        SoundEffectManager.Instance.Play(SFXType.GameOver);
     }
 
     public void __Init__()

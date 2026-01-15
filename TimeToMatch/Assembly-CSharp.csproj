@@ -69,10 +69,12 @@
     <Compile Include="Assets\Scripts\BannerAd.cs" />
     <Compile Include="Assets\Scripts\CardGridManager.cs" />
     <Compile Include="Assets\Scripts\IAPManager.cs" />
+    <Compile Include="Assets\Scripts\ButtonManager.cs" />
     <Compile Include="Assets\Scripts\Card.cs" />
     <Compile Include="Assets\Scripts\CardType.cs" />
     <Compile Include="Assets\Scripts\TimeSlider.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\SoundEffectManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\GoogleMobileAds\GoogleMobileAds.Common.dll" />

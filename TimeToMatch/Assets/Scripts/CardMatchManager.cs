@@ -47,12 +47,14 @@ public class CardMatchManager : MonoBehaviour
             timeSlider.AddTime();
             refillManager.OnMatchSuccess(firstCard.cardType);
             GameManager.Instance.ScoreUp();
+            SoundEffectManager.Instance.Play(SFXType.Correct);
         }
         else
         {
             // ❌ 다른 카드
             timeSlider.MinusTime();
             GameManager.Instance.Combo_Broken();
+            SoundEffectManager.Instance.Play(SFXType.InCorrect);
         }
 
         ResetSelection();
