@@ -954,6 +954,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93593f4fbe61afb45a4ec18975ddebf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonManager
+  audioSource: {fileID: 917224929}
+  music_Noraml: {fileID: 1527476447794648833, guid: a26fa65ed202c3f4cb8eb2ab2293bb51, type: 3}
+  music_Pressed: {fileID: 44011094519969938, guid: c0278d4d6f61d954dbd8400698ae3da9, type: 3}
+  music_None_Noraml: {fileID: -5159637697437276928, guid: 5ce6599f67a911041a78f265624848e2, type: 3}
+  music_None_Pressed: {fileID: -8949459898059115507, guid: b52e305a6e62da24b98fc4c9098867e7, type: 3}
 --- !u!4 &214935246
 Transform:
   m_ObjectHideFlags: 0
@@ -3331,7 +3336,7 @@ GameObject:
   - component: {fileID: 1115529419}
   - component: {fileID: 1115529418}
   m_Layer: 5
-  m_Name: CreditButton
+  m_Name: MusicButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3353,7 +3358,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 210, y: -557}
+  m_AnchoredPosition: {x: 210, y: -207}
   m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1115529418
@@ -3385,10 +3390,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: -6038547701640789417, guid: 701d6781defafe64d8911a9d7b633703, type: 3}
-    m_PressedSprite: {fileID: -465056882789809694, guid: f7279d185e8683b46afbe16058f80d69, type: 3}
-    m_SelectedSprite: {fileID: -6038547701640789417, guid: 701d6781defafe64d8911a9d7b633703, type: 3}
-    m_DisabledSprite: {fileID: -6038547701640789417, guid: 701d6781defafe64d8911a9d7b633703, type: 3}
+    m_HighlightedSprite: {fileID: 1527476447794648833, guid: a26fa65ed202c3f4cb8eb2ab2293bb51, type: 3}
+    m_PressedSprite: {fileID: 44011094519969938, guid: c0278d4d6f61d954dbd8400698ae3da9, type: 3}
+    m_SelectedSprite: {fileID: 1527476447794648833, guid: a26fa65ed202c3f4cb8eb2ab2293bb51, type: 3}
+    m_DisabledSprite: {fileID: 1527476447794648833, guid: a26fa65ed202c3f4cb8eb2ab2293bb51, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -3399,7 +3404,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1115529419}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 214935245}
+        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
+        m_MethodName: MusicOnOff
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1115529418}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 214935245}
+        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
+        m_MethodName: ButtonClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1115529419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3420,7 +3449,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -6038547701640789417, guid: 701d6781defafe64d8911a9d7b633703, type: 3}
+  m_Sprite: {fileID: 1527476447794648833, guid: a26fa65ed202c3f4cb8eb2ab2293bb51, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4258,6 +4287,18 @@ MonoBehaviour:
       - m_Target: {fileID: 920878381}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: TutorialOff
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 214935245}
+        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
+        m_MethodName: ButtonClickSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5396,7 +5437,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 210, y: -207}
+  m_AnchoredPosition: {x: 210, y: -557}
   m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1805693563
@@ -5942,8 +5983,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1820, y: 3313.3333}
+  m_AnchoredPosition: {x: 501.8, y: -240.5}
+  m_SizeDelta: {x: 10772.3, y: 8529.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1948885454
 MonoBehaviour:

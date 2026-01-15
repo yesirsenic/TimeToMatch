@@ -61,6 +61,6 @@ public class SoundEffectManager : MonoBehaviour
         }
 
         var sfx = sfxDict[type];
-        audioSource.PlayOneShot(sfx.clip, sfx.volume);
+        audioSource.PlayOneShot(sfx.clip, audioSource.volume);
     }
 }

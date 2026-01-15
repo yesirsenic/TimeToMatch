@@ -1,9 +1,8 @@
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Advertisements;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour, IUnityAdsInitializationListener
 {
     public static GameManager Instance { get; private set; }
     public bool isRunning;
@@ -28,9 +27,9 @@ public class GameManager : MonoBehaviour
     int combo;
 
 #if UNITY_ANDROID
-    private string gameId = "1234567";
+    private string gameId = "6025966";
 #elif UNITY_IOS
-    private string gameId = "7654321";
+    private string gameId = "6025967";
 #endif
 
 
@@ -50,11 +49,13 @@ public class GameManager : MonoBehaviour
         bestScore_Text.text = bestscore.ToString();
         score = 0;
         score_Text.text = score.ToString();
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 60;
     }
 
     void Start()
     {
-        Advertisement.Initialize(gameId, true);
+        Advertisement.Initialize(gameId, true, this);
     }
 
     private int comboScore()
@@ -164,6 +165,17 @@ public class GameManager : MonoBehaviour
         Tutorials.SetActive(false);
         __Init__();
 
+    }
+
+    public void OnInitializationComplete()
+    {
+        Debug.Log("Ads Init Complete");
+        BannerAd.Instance.LoadBanner();
+    }
+
+    public void OnInitializationFailed(UnityAdsInitializationError error, string message)
+    {
+        Debug.LogError($"Ads Init Failed: {error} - {message}");
     }
 
 

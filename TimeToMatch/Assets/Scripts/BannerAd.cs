@@ -3,6 +3,8 @@ using UnityEngine.Advertisements;
 
 public class BannerAd : MonoBehaviour
 {
+    public static BannerAd Instance;
+
 #if UNITY_ANDROID
     private string bannerId = "Banner_Android";
 #elif UNITY_IOS
@@ -11,11 +13,11 @@ public class BannerAd : MonoBehaviour
 
     void Start()
     {
+        Instance = this;
         Advertisement.Banner.SetPosition(BannerPosition.BOTTOM_CENTER);
-        LoadBanner();
     }
 
-    void LoadBanner()
+    public void LoadBanner()
     {
         Advertisement.Banner.Load(bannerId, new BannerLoadOptions
         {
