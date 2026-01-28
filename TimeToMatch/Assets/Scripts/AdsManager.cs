@@ -12,7 +12,7 @@ public class AdsManager : MonoBehaviour
     private InterstitialAd interstitialAd;
 
 #if UNITY_ANDROID
-    private string adUnitId = "ca-app-pub-3940256099942544/1033173712"; // 테스트 ID
+    private string adUnitId = "ca-app-pub-9548284037151614/3271929818"; // 테스트 ID
 #elif UNITY_IOS
     private string adUnitId = "ca-app-pub-3940256099942544/4411468910";
 #else

@@ -1,38 +1,67 @@
 using UnityEngine;
-using UnityEngine.Advertisements;
+using GoogleMobileAds.Api;
 
 public class BannerAd : MonoBehaviour
 {
     public static BannerAd Instance;
 
+    private BannerView bannerView;
+
 #if UNITY_ANDROID
-    private string bannerId = "Banner_Android";
+    private const string BANNER_ID = "ca-app-pub-9548284037151614/7019603133";
 #elif UNITY_IOS
-    private string bannerId = "Banner_iOS";
+    private const string BANNER_ID = "ca-app-pub-XXXXXXXXXX/IIIIIIIIII";
 #endif
 
-    void Start()
+    private void Awake()
     {
-        Instance = this;
-        Advertisement.Banner.SetPosition(BannerPosition.BOTTOM_CENTER);
-    }
-
-    public void LoadBanner()
-    {
-        Advertisement.Banner.Load(bannerId, new BannerLoadOptions
+        if (Instance != null)
         {
-            loadCallback = ShowBanner,
-            errorCallback = (error) => Debug.Log("Banner Load Error: " + error)
-        });
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
-    void ShowBanner()
+    private void Start()
     {
-        Advertisement.Banner.Show(bannerId);
+        Show();
     }
 
-    public void HideBanner()
+    public void Show()
     {
-        Advertisement.Banner.Hide();
+        if (NoAdsManager.Instance.HasNoAds)
+            return;
+
+        if (bannerView != null)
+            return;
+
+        bannerView = new BannerView(
+            BANNER_ID,
+            AdSize.Banner,
+            AdPosition.Bottom
+        );
+
+        var request = new AdRequest();
+        bannerView.LoadAd(request);
+    }
+
+    public void Hide()
+    {
+        if (bannerView != null)
+        {
+            bannerView.Hide();
+        }
+    }
+
+    public void DestroyBanner()
+    {
+        if (bannerView != null)
+        {
+            bannerView.Destroy();
+            bannerView = null;
+        }
     }
 }

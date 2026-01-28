@@ -28,7 +28,7 @@ public class NoAdsManager : MonoBehaviour
 
     public void SetNoAdsPurchased()
     {
-
+        BannerAd.Instance.Hide();
         HasNoAds = true;
         PlayerPrefs.SetInt(NO_ADS_KEY, 1);
         PlayerPrefs.Save();

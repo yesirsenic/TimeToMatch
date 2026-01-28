@@ -170,7 +170,6 @@ public class GameManager : MonoBehaviour, IUnityAdsInitializationListener
     public void OnInitializationComplete()
     {
         Debug.Log("Ads Init Complete");
-        BannerAd.Instance.LoadBanner();
     }
 
     public void OnInitializationFailed(UnityAdsInitializationError error, string message)
