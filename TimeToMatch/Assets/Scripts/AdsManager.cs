@@ -34,6 +34,9 @@ public class AdsManager : MonoBehaviour
 
     private void Start()
     {
+        if (NoAdsManager.Instance.HasNoAds)
+            return;
+
         MobileAds.Initialize(initStatus => { });
         LoadInterstitial();
     }
