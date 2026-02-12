@@ -1,0 +1,23 @@
+# ninja log v5
+78	276	7913259360764578	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	e70b4f7dafed5ec9
+0	2593	7913259377325182	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	227ec913754f58f
+15	2591	7913259372563850	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	4bcdf163550d44fb
+58	2581	7913259375676438	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	afa305fcd806e8a8
+67	2600	7913259374822002	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	6f39d9181630c994
+32	2586	7913259373096565	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	a5c0bf1fcec686ce
+24	2588	7913259372704384	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	17f142a33ae1fe8e
+39	2590	7913259376987590	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	1b95aacb313afc7
+48	2594	7913259374264251	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	2cbf675acf770691
+705	2605	7913259383956010	D:/Github/TimeToMatch/TimeToMatch/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/3jm5h2n3/obj/arm64-v8a/libswappywrapper.so	42aaf26d3cf3f346
+2600	2736	7913259385353092	D:/Github/TimeToMatch/TimeToMatch/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/3jm5h2n3/obj/arm64-v8a/libgame.so	3d89f2ff4cbd6c09
+36	182	7919707087281682	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	e70b4f7dafed5ec9
+183	537	7919707090637081	D:/Github/TimeToMatch/TimeToMatch/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/3jm5h2n3/obj/arm64-v8a/libswappywrapper.so	42aaf26d3cf3f346
+21	1419	7919707099088718	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	2cbf675acf770691
+12	1445	7919707099815629	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	17f142a33ae1fe8e
+24	1484	7919707100234408	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	6f39d9181630c994
+18	1486	7919707100254453	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	4bcdf163550d44fb
+15	1496	7919707100374682	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	a5c0bf1fcec686ce
+32	1573	7919707101177026	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	afa305fcd806e8a8
+28	1665	7919707102082301	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	1b95aacb313afc7
+6	1724	7919707102660854	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	227ec913754f58f
+1724	1852	7919707103959147	D:/Github/TimeToMatch/TimeToMatch/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/3jm5h2n3/obj/arm64-v8a/libgame.so	3d89f2ff4cbd6c09
